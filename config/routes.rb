@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'posts/new'
+  get 'posts/index'
+  get 'posts/show'
  root to: 'users/homes#top'
 # ユーザー用
   namespace :users do
