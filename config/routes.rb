@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
- root to: 'users/homes#top'
+   root to: 'users/homes#top'
 # ユーザー用
-  namespace :users do
-    root to: 'homes#top'
+  scope module: :users do
+    resources :posts, only: [:new, :index, :show, :create, :destroy]
   end
   
   devise_scope :user do
