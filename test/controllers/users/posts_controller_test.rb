@@ -1,18 +1,18 @@
 require "test_helper"
 
-class PostsControllerTest < ActionDispatch::IntegrationTest
+class Users::PostsControllerTest < ActionDispatch::IntegrationTest
   test "should get new" do
-    get posts_new_url
+    get users_posts_new_url
     assert_response :success
   end
 
   test "should get index" do
-    get posts_index_url
+    get users_posts_index_url
     assert_response :success
   end
 
   test "should get show" do
-    get posts_show_url
+    get users_posts_show_url
     assert_response :success
   end
 end
