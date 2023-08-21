@@ -13,6 +13,7 @@ class Users::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
+      flash[:notice] = "投稿に成功しました"
       redirect_to posts_path
     else
       @posts = Post.all
@@ -20,18 +21,17 @@ class Users::PostsController < ApplicationController
     end
   end
 
-  def update
-
-  end
-
   def destroy
-
+    @post = Post.find(params[:id])
+    @post.destroy
+    flash[:notice] = "投稿を削除しました"
+    redirect_to posts_path
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:user_id, :address, :latitude, :longitude, :title, :body, :image)
+    params.require(:post).permit(:user_id, :address, :latitude, :longitude, :title, :body, images: [])
   end
 
 end
