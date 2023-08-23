@@ -1,0 +1,29 @@
+  <table>
+    <tbody>
+      <% @post.comments.each do |comment| %>
+      <tr>
+        <td>
+          <%= link_to user_path(book_comment.user) do %>
+            <%= image_tag comment.user.get_profile_image(50, 50) %></br>
+            <%= comment.user.name %>
+          <% end %>
+        </td>
+        <!--投稿されたコメント-->
+        <td><%= comment.comment %></td>
+        <!--ログインしているユーザーであれば削除ボタンを表示-->
+        <td>
+          <% if comment.user == current_user %>
+            <%= link_to "削除する", post_comment_path(@post, comment), method: :delete, class: "btn btn-denger btn-lg text-white" %>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <!--コメント投稿フォーム-->
+  <div>
+    <%= form_with model: [@post, @comment] do |f| %>
+      <%= f.text_area :comment, rows: '8', placeholder: "コメント", size "30x7" %>
+      <%= f.submit "送信" %>
+    <% end %>
+  </div>
