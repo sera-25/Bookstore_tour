@@ -3,7 +3,8 @@ Rails.application.routes.draw do
 # ユーザー用
   scope module: :users do
     resources :posts, only: [:new, :index, :show, :create, :destroy] do
-        resources :comments, only: [:show, :create, :destroy]
+        resources :comments, only: [:create, :destroy]
+        resource :favorites, only: [:create, :destroy]
     end
   end
   

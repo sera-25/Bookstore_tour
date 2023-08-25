@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   
   def self.guest
     find_or_create_by!(email: GUEST_USER_EMAIL) do |user|
