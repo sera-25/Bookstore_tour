@@ -12,7 +12,12 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
-    <%= yield %>
+    <div class="full-page">
+      <main>
+        <%= render 'layouts/header' %>
+        <%= render 'layouts/sideber' %>
+        <%= yield %>
+      </main>
+    </div>
   </body>
 </html>
