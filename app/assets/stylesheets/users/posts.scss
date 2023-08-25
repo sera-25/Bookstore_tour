@@ -1,3 +1,13 @@
 // Place all the styles related to the users/posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.border {
+  display: inline-block;
+  border: 4px solid #FFF; 
+  border-radius: 15px;
+  textalign: center;
+  margin: 20px;
+  padding: 15px;
+  width: 20%;
+}

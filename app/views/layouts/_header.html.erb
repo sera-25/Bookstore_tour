@@ -1,0 +1,23 @@
+<header class="sticky-top">
+  <nav class="navbar navbar-expand-lg py-2 navbar-dark nav-style" style="background-color: #770000">
+    <div class="logo_area">
+      <a class="navbar-brand ml-5" href="/">
+        <%= image_tag "logo.png", size: "170x60" %>
+      </a>
+    </div>
+    <ul class="navbar-nav ml-auto">
+      <% if user_signed_in? %>
+        <li class="border border-light rounded text-center ml-4 p-1">
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-light" %>
+        </li>
+      <% else %>
+        <li class="border border-light rounded text-center p-1">
+          <%= link_to "新規登録", new_user_registration_path, class: "nav-link text-light" %>
+        </li>
+        <li class="border border-light rounded text-center mx-4 p-1">
+          <%= link_to "ログイン", new_user_session_path, class: "nav-link text-light" %>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
+</header>
