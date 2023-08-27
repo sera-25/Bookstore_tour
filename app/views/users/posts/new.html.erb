@@ -1,5 +1,5 @@
 <table class="table table-borderless">
-  <%= form_with model: @post, url: posts_path do |f| %>
+  <%= form_with model: @post, local: true do |f| %>
   <tbody>
     <h4 class="border">新規投稿</h4>
     <tr>
@@ -13,14 +13,6 @@
      <tr>
       <th class="img">画像</th>
       <td><%= f.file_field :images, multiple: true %></td>
-    </tr>
-     <tr>
-      <th class="address">住所</th>
-      <td><%=  %></td>
-    </tr>
-     <tr>
-      <th>地図</th>
-      <td></td>
     </tr>
   </tbody>
 </table>

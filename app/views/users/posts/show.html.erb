@@ -1,2 +1,8 @@
-<h1>Users::Posts#show</h1>
-<p>Find me in app/views/users/posts/show.html.erb</p>
+<%= image_tag @post.user.get_profile_image, size: "50x50" %>
+<%= @post.user.name %>
+<%= render "users/relationships/btn", user: @user %>
+<%= @post.title %>
+<%= @post.body %>
+<%= render "users/favorites/btn", post: @post %>
+<%= render "users/comments/comment", post: @post %>
+<%= render "users/comments/comment_form", post: @post, comment: Comment.new %>

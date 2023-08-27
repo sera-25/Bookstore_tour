@@ -1,0 +1,23 @@
+<div class="container">
+  <div class=row>
+    <div class=col>
+      <h3>フォロー一覧</h3>
+  <table class='table table-borderless'>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= image_tag user.get_profile_image, size: "50x50" %></td>
+          <td>
+            <%= link_to user_path(user) do %>
+              <%= user.name %>
+            <% end %>
+            </td>
+          <td>フォロー <%= user.followers.count %></td>
+          <td>フォロワー <%= user.followeds.count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+    </div>
+  </div>
+</div>

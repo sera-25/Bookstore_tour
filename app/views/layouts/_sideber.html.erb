@@ -1,6 +1,11 @@
+<% if user_signed_in? %>
 <div class="sidebar">
   <ul class="border-1">
-    <li class="home">
+    <li class="nav text-light">
+      <%= image_tag current_user.get_profile_image, size: "60x60" %>
+      <%= current_user.name %>
+    </li>
+    <li>
       <%= link_to "ホーム", posts_path, class: "nav-link text-light" %>
     </li>
     <li>
@@ -13,10 +18,11 @@
       <%= link_to "お気に入り", new_user_registration_path, class: "nav-link text-light" %>
     </li>
     <li>
-      <%= link_to "マイページ", new_user_registration_path, class: "nav-link text-light" %>
+      <%= link_to "マイページ", user_path(current_user.id), class: "nav-link text-light" %>
     </li>
     <li>
       <%= link_to "設定", new_user_registration_path, class: "nav-link text-light" %>
     </li>
   </ul>
 </div>
+<% end %>

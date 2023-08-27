@@ -15,8 +15,10 @@
     <div class="full-page">
       <main>
         <%= render 'layouts/header' %>
-        <%= render 'layouts/sideber' %>
-        <%= yield %>
+        <div class="d-flex">
+          <%= render 'layouts/sideber' %>
+          <%= yield %>
+        </div>
       </main>
     </div>
   </body>
