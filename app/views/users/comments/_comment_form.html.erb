@@ -1,7 +1,7 @@
  <!--コメント投稿フォーム-->
   <div>
-    <%= form_with model: [@post, @comment] do |f| %>
-      <%= f.text_area :comment, rows: '8', placeholder: "コメント", size "30x7" %>
+    <%= form_with model: [post, comment] do |f| %>
+      <%= f.text_area :comment, placeholder: "コメント" %>
       <%= f.submit "送信" %>
     <% end %>
   </div>

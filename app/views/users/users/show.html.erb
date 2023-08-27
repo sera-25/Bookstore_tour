@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="row">
+    <h2>マイページ</h2>
+    <%= image_tag @user.get_profile_image, size: "50x50"%>
+    <h3><%= @user.name %></h3>
+    <%= @user.posts %>
+  </div>
+</div>

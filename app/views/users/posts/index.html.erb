@@ -1,2 +1,11 @@
-<h1>Users::Posts#index</h1>
-<p>Find me in app/views/users/posts/index.html.erb</p>
+<h2>投稿一覧</h2>
+<% @posts.each do |post| %>
+<%= image_tag post.user.get_profile_image, size: "50x50" %>
+<%= link_to post.title, post_path(post) %>
+<%= post.body %>
+<% post.images.each do |image| %>
+<%= image_tag image, size: "100x100" %>
+<% end %>
+<%= render "users/favorites/btn", post: post %>
+<%= render "users/comments/btn", post: post %>
+<% end %>
