@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  root to: 'users/homes#top'
 
   # 管理者用
   devise_for :admins, controllers: {
@@ -9,7 +8,7 @@ Rails.application.routes.draw do
   }
 
   # ユーザー用
-  devise_scope :user do
+  devise_scope :users do
     post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
   end
 
@@ -18,8 +17,13 @@ Rails.application.routes.draw do
     sessions:      'users/sessions',
     passwords:     'users/passwords'
   }
+  namespace :admins do
+    root to: 'homes#top'
+    resources :users, only: [:index, :show, :edit, :update]
+  end
 
   scope module: :users do
+    root to: 'homes#top'
     resources :posts, only: [:new, :index, :show, :create, :destroy] do
         resources :comments, only: [:create, :destroy]
         resource :favorites, only: [:create, :destroy]

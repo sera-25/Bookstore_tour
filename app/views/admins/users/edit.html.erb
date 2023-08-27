@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+      <h2>ユーザー情報編集</h2>
+         <%= form_with model: @user, url: admin_user_path, local:true do |f| %>
+        <div class="field-row">
+          <%= f.label :"ユーザーID", class:"col-4" %>
+          <%= f.label :"#{@user.id}" %>
+        </div>
+        <div class="field-row">
+          <%= f.label :"ユーザー名", class:"col-4" %>
+          <%= f.text_field :name, class:"col-3" %>
+        </div>
+        </div>
+        <div class="field-row">
+          <%= f.label :"メールアドレス", class:"col-4" %>
+          <%= f.text_field :email, class:"col-3" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :"ステータス", class:"col-4" %>
+          <%= f.radio_button :is_quit_status, false %>
+          <%= f.label :is_quit_status, "有効" %>
+          <%= f.radio_button :is_quit_status, true %>
+          <%= f.label :is_quit_status, "退会" %>
+        </div>
+        <div class="form-group col-11 d-flex justify-content-around">
+          <%= f.submit '変更を保存', class: "btn btn-success" %>
+        </div>
+      <% end %>
+       </div>
+    </div>
+</div>

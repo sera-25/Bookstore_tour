@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <h2>ユーザー詳細</h2>
+    <%= image_tag @user.get_profile_image, size: "50x50" %>
+    <table class="table">
+      <tr>
+        <th class="text-left">ユーザーID</th>
+        <td><%= @user.id %></td>
+      </tr>
+      <tr>
+        <th class="text-left">ユーザー名</th>
+        <td><%= @user.name %></td>
+      </tr>
+      <tr>
+        <th class="text-left">メールアドレス</th>
+        <td><%= @user.email %></td>
+      </tr>
+      <tr>
+        <th class="text-left">ステータス</th>
+        <% if @user.is_deleted == true %>
+          <td class="text-danger">退会済み</td>
+        <% else %>
+          <td class="text-success">有効</td>
+        <% end %>
+      </tr>
+    </table>
+    <%= link_to "編集する",edit_admin_user_path, class:"btn btn-success" %>
+  </div>
+</div>

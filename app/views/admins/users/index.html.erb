@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <h2>ユーザー一覧</h2>
+    <table class="table table-borderless">
+      <tbody>
+        <%= @users.each do |user| %>
+        <tr>
+          <td><%= image_tag user.get_profile_image, size: "50x50" %></td>
+          <td><%= user.name %></td>
+          <td>
+            <% if user.is_quit_status == true %>
+              <span style="color:darkgray;"><%= "退会" %></strong>
+            <% else %>
+              <strong style="color:orange;"><%= "有効" %></strong>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <%= paginate @users %>
+  </div>
+</div>
