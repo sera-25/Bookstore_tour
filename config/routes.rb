@@ -19,11 +19,13 @@ Rails.application.routes.draw do
   }
   namespace :admins do
     root to: 'homes#top'
+    get "search" => "searches#search"
     resources :users, only: [:index, :show, :edit, :update]
   end
 
   scope module: :users do
     root to: 'homes#top'
+    get "search" => "searches#search"
     resources :posts, only: [:new, :index, :show, :create, :destroy] do
         resources :comments, only: [:create, :destroy]
         resource :favorites, only: [:create, :destroy]
