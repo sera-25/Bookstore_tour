@@ -1,5 +1,7 @@
 class Users::UsersController < ApplicationController
   def index
+    @user = current_user
+    @favorites = Favorite.where(user_id: @user.id).all
   end
 
   def show
@@ -26,6 +28,6 @@ class Users::UsersController < ApplicationController
   private
   
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:name, :email, :profile_image)
   end
 end

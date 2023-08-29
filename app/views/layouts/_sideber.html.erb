@@ -1,15 +1,14 @@
 <% if user_signed_in? %>
 <div class="sidebar">
   <ul class="border-1">
-    <li class="nav text-light">
-      <%= image_tag current_user.get_profile_image, size: "60x60" %>
-      <%= current_user.name %>
+    <li class="nav text-light" style="margin:5px;">
+      <%= image_tag current_user.get_profile_image, size: "60x60" %> <%= current_user.name %>
     </li>
     <li>
       <%= link_to "ホーム", posts_path, class: "nav-link text-light" %>
     </li>
     <li>
-      <%= link_to "フォロー一覧", new_user_registration_path, class: "nav-link text-light" %>
+      <%= link_to "フォロー一覧", follows_user_path(current_user.id), class: "nav-link text-light" %>
     </li>
     <li>
       <%= link_to "ユーザー検索", new_user_registration_path, class: "nav-link text-light" %>
@@ -21,7 +20,7 @@
       <%= link_to "マイページ", user_path(current_user.id), class: "nav-link text-light" %>
     </li>
     <li>
-      <%= link_to "設定", new_user_registration_path, class: "nav-link text-light" %>
+      <%= link_to "アカウント編集", edit_user_path(current_user.id), class: "nav-link text-light" %>
     </li>
   </ul>
 </div>

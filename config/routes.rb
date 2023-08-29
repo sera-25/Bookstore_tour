@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
 
   # 管理者用
-  devise_for :admins, controllers: {
-    registrations: 'admins/registrations',
-    sessions:      'admins/sessions',
-    passwords:     'admins/passwords'
+  # URL /admin/sign_in ...
+  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+  sessions: "admin/sessions"
   }
 
   # ユーザー用
@@ -17,13 +16,15 @@ Rails.application.routes.draw do
     sessions:      'users/sessions',
     passwords:     'users/passwords'
   }
-  namespace :admins do
+  namespace :admin do
     root to: 'homes#top'
+    get "search" => "searches#search"
     resources :users, only: [:index, :show, :edit, :update]
   end
 
   scope module: :users do
     root to: 'homes#top'
+    get "search" => "searches#search"
     resources :posts, only: [:new, :index, :show, :create, :destroy] do
         resources :comments, only: [:create, :destroy]
         resource :favorites, only: [:create, :destroy]

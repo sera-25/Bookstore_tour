@@ -35,7 +35,7 @@ class User < ApplicationRecord
   def unfollow(user_id)
     followers.find_by(followed_id: user_id).destroy
   end
-  #フォローしていればtrueを返す
+  
   def following?(user)
     following_users.include?(user)
   end
