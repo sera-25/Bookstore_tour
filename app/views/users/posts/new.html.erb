@@ -1,27 +1,26 @@
 <div class="container">
   <div class="row">
     <table class="table table-borderless">
-    <%= form_with model: @post, local: true do |f| %>
     <tbody>
       <h4><b>新規投稿</b></h4>
-      <tr>
-        <th class="title">タイトル</th>
-        <td><%= f.text_field :title, placeholder: "タイトルを記入してください", size: "30" %></td>
-      </tr>
-       <tr>
-        <th class="body">本文</th>
-        <td><%= f.text_area :body, placeholder: "本文を記入してください", size: "35x7" %></td>
-      </tr>
-       <tr>
-        <th class="img">画像</th>
-        <td><%= f.file_field :images, multiple: true %></td>
-      </tr>
+      <%= form_with model: @post, local: true do |f| %>
+        <tr>
+          <th class="title">タイトル</th>
+          <td><%= f.text_field :title, placeholder: "タイトルを記入してください", size: "30" %></td>
+        </tr>
+         <tr>
+          <th class="body">本文</th>
+          <td><%= f.text_area :body, placeholder: "本文を記入してください", size: "35x7" %></td>
+        </tr>
+         <tr>
+          <th class="img">画像</th>
+          <td><%= f.file_field :images, multiple: true %></td>
+        </tr>
+      <% end %>
     </tbody>
   </table>
   <div class="form" style="margin-left:350px;">
     <%= f.submit "投稿する", class: "btn btn-primary text-white" %>
-  </div>
-  
-  <% end %>
+    </div>
   </div>
 </div>
