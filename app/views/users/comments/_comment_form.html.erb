@@ -1,0 +1,6 @@
+ <!--コメント投稿フォーム-->
+  <div class="form" style="margin-top:300px;">
+    <%= form_with model: [post, comment] do |f| %>
+      <%= f.text_area :comment, placeholder: "コメント", style: "width:200px; height:300px;" %> <%= f.submit "送信" %>
+    <% end %>
+  </div>
