@@ -4,8 +4,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
 
-  
 
+  def configure_sign_up_params
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :encrypted_password])
+  end
   # GET /resource/sign_up
   # def new
   #   super
@@ -14,7 +16,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   # def create
   #   build_resource(sign_up_params)
-  
+
   #   resource.save
   #   yield resource if block_given?
   #   if resource.persisted?
