@@ -3,10 +3,14 @@
     <h2>ユーザー一覧</h2>
     <table class="table table-borderless">
       <tbody>
-        <%= @users.each do |user| %>
+        <% @users.each do |user| %>
         <tr>
           <td><%= image_tag user.get_profile_image, size: "50x50" %></td>
-          <td><%= user.name %></td>
+          <td>
+            <%= link_to admin_user_path(user) do %>
+              <%= user.name %>
+            <% end %>
+          </td>
           <td>
             <% if user.is_quit_status == true %>
               <span style="color:darkgray;"><%= "退会" %></strong>

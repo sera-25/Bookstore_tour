@@ -8,12 +8,13 @@
     <ul class="navbar-nav ml-auto">
       <% if admin_signed_in? %>
         <li class="border border-light rounded text-center p-1">
-          <%= link_to "ユーザー一覧", new_user_registration_path, class: "nav-link text-light" %>
+          <%= link_to "ユーザー一覧", admin_users_path, class: "nav-link text-light" %>
         </li>
         <li class="border border-light rounded text-center ml-4 p-1">
           <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link text-light" %>
         </li>
       <% elsif user_signed_in? %>
+      <%= render 'layouts/search' %>
         <li class="border border-light rounded text-center ml-4 p-1">
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-light" %>
         </li>
