@@ -8,21 +8,21 @@
       <%= link_to "ホーム", posts_path, class: "nav-link text-light" %>
     </li>
     <li>
-      <%= link_to "フォロー一覧", follows_user_path(current_user.id), class: "nav-link text-light" %>
+      <%= link_to "フォロー一覧", follows_user_path(current_user), class: "nav-link text-light" %>
     </li>
     <!--<li>-->
     <!--  <#%= link_to "ユーザー検索", new_user_registration_path, class: "nav-link text-light" %>-->
     <!--</li>-->
     <li>
-      <%= link_to "お気に入り", favorites_user_path(current_user.id), class: "nav-link text-light" %>
+      <%= link_to "お気に入り", favorites_user_path(current_user), class: "nav-link text-light" %>
     </li>
     <li>
-      <%= link_to "マイページ", user_path(current_user.id), class: "nav-link text-light" %>
+      <%= link_to "マイページ", user_path(current_user), class: "nav-link text-light" %>
     </li>
     <li>
-      
-      <%= link_to "アカウント編集", edit_user_path(current_user.id), class: "nav-link text-light" %>
-      
+      <% if current_user.email != "guest@example.com" %>
+        <%= link_to "アカウント編集",edit_user_path(current_user), class: "nav-link text-light" %>
+      <% end %>
     </li>
   </ul>
 </div>

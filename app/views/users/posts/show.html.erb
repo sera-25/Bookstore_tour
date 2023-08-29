@@ -5,7 +5,15 @@
         <tr>
           <td><%= image_tag @post.user.get_profile_image, size: "100x100" %></td>
           <td><%= @post.user.name %></td>
-          <td><%= render "users/relationships/btn", user: @user %></td>
+          <td>
+            <% if current_user != @user %>
+              <% if current_user.following?(@user) %>
+                <%= link_to "フォロー中", user_relationships_path(@user), method: :delete %>
+              <% else %>
+                <%= link_to "フォロー", user_relationships_path(@user), method: :post %>
+              <% end %>
+            <% end %>
+          </td>
         </tr>
          <tr class="text" style="font-size:20px;">
           <td><b><%= @post.title %></b></td>
