@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-5 mx-auto">
+      <table class="table table-borderless">
+        <tr>
+          <td><%= image_tag @post.user.get_profile_image, size: "100x100" %></td>
+          <td><%= @post.user.name %></td>
+          <td><%= render "users/relationships/btn", user: @user %></td>
+        </tr>
+         <tr class="text" style="font-size:20px;">
+          <td><b><%= @post.title %></b></td>
+        </tr>
+         <tr>
+          <td><%= @post.body %></td>
+        </tr>
+         <tr>
+          <td>
+            <% @post.images.each do |image| %>
+              <%= image_tag image, size: "100x100" %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td><%= render "users/favorites/btn", post: @post %></td>
+          <td><%= render "users/comments/btn", post: @post %></td>
+        </tr>
+        <tr>
+          <td>
+            <% if @post.user == current_user %>
+            <button type="button" class="btn btn-outline-dark" style="width:150px;">
+                <%= link_to "削除する", post_path(@post), method: :delete, class: "btn" %>
+            </button>
+            <% end %>
+          </td>
+        </tr>
+         <tr></tr>
+          <td><%= render "users/comments/comment", post: @post %></td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-3 mx-auto">
+      <%= render "users/comments/comment_form", post: @post, comment: Comment.new %>
+    </div>
+  </div>
+</div>

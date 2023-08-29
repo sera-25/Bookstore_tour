@@ -1,0 +1,23 @@
+<div class="container">
+  <div class=row>
+    <div ></div>
+    <h2>投稿一覧</h2>
+    <% @posts.each do |post| %>
+    <div class="img">
+      <%= image_tag post.user.get_profile_image, size: "100x100" %>
+    </div>
+    <div>
+      <%= link_to post_path(post) do %>
+        <%= post.user.name %>
+      <% end %>
+    </div>
+    <%= post.title %>
+    <%= post.body %>
+    <% post.images.each do |image| %>
+    <%= image_tag image, size: "100x100" %>
+    <% end %>
+    <%= render "users/favorites/btn", post: post %>
+    <%= render "users/comments/btn", post: post %>
+    <% end %>
+  </div>
+</div>
