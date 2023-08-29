@@ -1,9 +1,9 @@
+<%= form_with model: @post, local: true do |f| %>
 <div class="container">
   <div class="row">
     <table class="table table-borderless">
     <tbody>
       <h4><b>新規投稿</b></h4>
-      <%= form_with model: @post, local: true do |f| %>
         <tr>
           <th class="title">タイトル</th>
           <td><%= f.text_field :title, placeholder: "タイトルを記入してください", size: "30" %></td>
@@ -16,7 +16,6 @@
           <th class="img">画像</th>
           <td><%= f.file_field :images, multiple: true %></td>
         </tr>
-      <% end %>
     </tbody>
   </table>
   <div class="form" style="margin-left:350px;">
@@ -24,3 +23,4 @@
     </div>
   </div>
 </div>
+<% end %>
