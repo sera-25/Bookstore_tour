@@ -17,7 +17,7 @@
       </tr>
       <tr>
         <th class="text-left">ステータス</th>
-        <% if @user.is_deleted == true %>
+        <% if @user.is_quit_status == true %>
           <td class="text-danger">退会済み</td>
         <% else %>
           <td class="text-success">有効</td>
