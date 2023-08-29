@@ -20,9 +20,9 @@
       <%= link_to "マイページ", user_path(current_user.id), class: "nav-link text-light" %>
     </li>
     <li>
-      <% if user.email != "guest@example.com" %>
+      
       <%= link_to "アカウント編集", edit_user_path(current_user.id), class: "nav-link text-light" %>
-      <% end %>
+      
     </li>
   </ul>
 </div>
